@@ -39,15 +39,24 @@ Page({
     commonData.routers(coachRouter, coachTitle);
   },
   onLoad: function () {
-    // var This= this;
-    // wx.request({
-    //   url: '',
-    //   success(res) {
-    //     This.setData({
-    //       swiperImg: res.data
-    //     })
-    //   }
-    // })
+
+
+
+    var that= this;
+    wx.request({
+      url: 'http://localhost:5500/testPost',
+      method: "POST",
+      data: {
+        x:1,
+        y:2
+      },
+      success: function(res) {
+        // This.setData({
+        //   swiperImg: res.data
+        // })
+        console.log(res)
+      }
+    })
 
     if (app.globalData.userInfo) {
       this.setData({
